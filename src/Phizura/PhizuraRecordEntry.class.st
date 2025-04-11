@@ -4,7 +4,8 @@ Class {
 	#instVars : [
 		'time',
 		'receiver',
-		'message'
+		'message',
+		'arguments'
 	],
 	#category : 'Phizura-Core',
 	#package : 'Phizura',
@@ -14,7 +15,7 @@ Class {
 { #category : 'printing' }
 PhizuraRecordEntry >> emitCode [
 
-	^ String streamContents: [ :aStream | aStream << receiver << ' ' << message ]
+	^ String streamContents: [ :aStream | aStream << receiver << ' ' << message << ' ' << arguments printString ]
 ]
 
 { #category : 'accessing' }
@@ -57,4 +58,16 @@ PhizuraRecordEntry >> time [
 PhizuraRecordEntry >> time: aDateAndTime [
 
 	time := aDateAndTime
+]
+
+{ #category : 'accessing' }
+PhizuraRecordEntry >> arguments [
+
+	^ arguments
+]
+
+{ #category : 'accessing' }
+PhizuraRecordEntry >> arguments: anArray [
+
+	arguments := anArray
 ]
